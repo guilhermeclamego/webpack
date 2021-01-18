@@ -25,7 +25,6 @@
             if (connection.objectStoreNames.contains('negociacoes')) {
                 connection.deleteObjectStore('negociacoes');
             }
-            //conexão
             connection.createObjectStore('negociacoes', { autoIncrement: true });
         };
 
