@@ -18,7 +18,7 @@ if(process.env.NODE_ENV == 'production') {
     plugins.push(new babiliPlugin());
 
     /*como está produção, minificar o css, apenas em produção, em dev não é necessário
-    Verificar o style.css na dist, irá está minificado*/
+    Verificar o style.css na dist, irá está minificado */
     plugins.push(new optimizeCSSAssetsPlugin({
         cssProcessor: require('cssnano'),
         cssProcessorOptions: {
