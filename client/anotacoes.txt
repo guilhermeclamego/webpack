@@ -1,0 +1,18 @@
+Detalhe importante para ser anotado:
+Cenário Exemplo:
+Caso o bootstrap seja colocado via npm, ele irá pra dentro da pasta node_modules, para fazer
+a importação dele, no caso deste projeto, no app.js será necessário importa-lo, da seguinte maneira:
+
+import 'booststrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap-theme.css';
+
+Ok, irá importar com sucesso 
+
+Detalhe da anotação:
+Quando importado assim, automaticamente irá pegar da node_modules. 
+Porém, caso for criado um arquivo css especifico e for necessário importa-lo, será da
+seguinte maneira:
+import '../css/meucss.css';
+
+ou seja, é um cuidado que deverá ser tomado ao fazer importação da node_modules e da
+raiz do projeto. 
