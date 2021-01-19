@@ -6,6 +6,10 @@ const webpack = require('webpack');
 
 let plugins = [];
 
+plugins.push(
+    new extractTextPlugin("styles.css")
+);
+
 /* plugin para escopo global, pois o bootstrap usa o jquery, 
 portanto é necessário importar de forma global, se importado no app.js, daria erro */
 plugins.push(new webpack.ProvidePlugin({
@@ -13,9 +17,11 @@ plugins.push(new webpack.ProvidePlugin({
     'jQuery': 'jquery/dist/jquery.js'
 }))
 
-plugins.push(
-    new extractTextPlugin("styles.css")
-);
+//Separar o código do projeto e as depedencias em 2 bundles diferentes.
+plugins.push(new webpack.optimize.CommonsChunkPlugin({ 
+    name: 'vendor', 
+    filename: 'vendor.bundle.js'
+}));
 
 /**
  * Com o process teremos acesso a todas as variáveis de ambiente definidas no 
@@ -41,7 +47,10 @@ if(process.env.NODE_ENV == 'production') {
 
 
 module.exports = {
-    entry: './app-src/app.js',
+    entry: {
+        app: './app-src/app.js', //bundle.js da aplicação
+        vendor: ['jquery', 'bootstrap', 'reflect-metadata'] //vendor.bundle.js das dependencias
+    },
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist'),
