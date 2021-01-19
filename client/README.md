@@ -1,1 +1,1 @@
-Não esqueçam de entrar dentro da pasta 'client' e executar o comando `npm install` antes de utilizar o projeto. 
+Não esqueçam de entrar dentro da pasta 'client' e executar o comando `npm install` antes da utilização o projeto.  
