@@ -16,3 +16,15 @@ import '../css/meucss.css';
 
 ou seja, é um cuidado que deverá ser tomado ao fazer importação da node_modules e da
 raiz do projeto. 
+
+
+
+
+Parâmetros do html-webpack-plugin, adicionado no webpack.config.js
+hash: quando true, adiciona um hash no final da URL dos arquivos script e CSS importados no arquivo HTML gerado, importante para versionamento e cache no navegador. Quando um bundle diferente for gerado, o hash será diferente e isso é suficiente para invalidar o cache do navegador, fazendo-o carregar o arquivo mais novo.
+
+minify: recebe um objeto como parâmetro com as configurações utilizadas para minificar o HTML. Podemos consultar todas as configurações possíveis no endereço https://github.com/kangax/html-minifier#options-quick-reference.
+
+filename: o nome do arquivo HTML que será gerado. Respeitará o valor do path de output que já configuramos logo no início da criação do arquivo webpack.config.js.
+
+template: caminho do arquivo que servirá como template para geração de index.html.
