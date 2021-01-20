@@ -3,7 +3,7 @@ const babiliPlugin = require('babili-webpack-plugin');
 const extractTextPlugin = require('extract-text-webpack-plugin');
 const optimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const webpack = require('webpack');
-const htmlWebPackPlugin = require('html-webpack-plugin');
+const htmlWebPackPlugin = require('html-webpack-plugin'); //gerar o index.html no bundle
 
 let plugins = [];
 
