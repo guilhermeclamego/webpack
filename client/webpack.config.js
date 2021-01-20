@@ -32,12 +32,17 @@ plugins.push(new webpack.optimize.CommonsChunkPlugin({
     filename: 'vendor.bundle.js'
 }));
 
+//url build dev
+let SERVICE_URL = JSON.stringify('http://localhost:3000');
+
 /**
  * Com o process teremos acesso a todas as variáveis de ambiente definidas no 
  * sistema operacional. Vamos testar se NODE_ENV é igual a production.
  * Se ele foi setado, com o método push(), jogaremos uma nova instancia new babiliPlugin().
  */
 if(process.env.NODE_ENV == 'production') {
+    let SERVICE_URL = JSON.stringify('https://enderecoprod:8080');
+
     plugins.push(new webpack.optimize.ModuleConcatenationPlugin()); //acelera tempo de processamento e carregamento
     plugins.push(new babiliPlugin());
 
@@ -52,8 +57,10 @@ if(process.env.NODE_ENV == 'production') {
         },
         canPrint: true        
     }));
+    
 }
 
+plugins.push(new webpack.DefinePlugin({ SERVICE_URL }));
 
 module.exports = {
     entry: {

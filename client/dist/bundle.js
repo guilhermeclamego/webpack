@@ -449,7 +449,7 @@ const config = {
     body
 };
 
-fetch('http://localhost:3000/negociacoes', config).then(() => console.log('Dado enviado com sucesso'));
+fetch(`${"http://localhost:3000"}:3000/negociacoes`, config).then(() => console.log('Dado enviado com sucesso'));
 
 /***/ }),
 /* 14 */
